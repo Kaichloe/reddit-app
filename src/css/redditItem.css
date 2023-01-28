@@ -1,0 +1,45 @@
+.reddit-item {
+  background-color: #1a1a1b;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 20%;
+  height: 50%;
+  border: 1px solid grey;
+  min-width: 300px;
+}
+
+.reddit-item:hover {
+  border: 1px solid white;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 1rem;
+  color: rgb(255 255 255);
+  margin-bottom: 1rem;
+}
+
+.item-author {
+  font-size: 12px;
+  color: rgb(255 255 255);
+  margin-bottom: 0.5rem;
+}
+
+.item-content {
+  font-size: 12px;
+  color: rgb(255 255 255);
+}
+
+video {
+  background-color: black;
+  border-radius: 5px;
+}

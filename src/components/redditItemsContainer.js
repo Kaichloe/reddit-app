@@ -1,49 +1,45 @@
-import React, { useEffect, useState } from "react";
-import {
-  fetchAccessToken,
-  revokeAccessToken,
-  fetchData,
-} from "../API/redditAPI";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import RedditItem from "./redditItem";
 import "../css/redditItemsContainer.css";
 import RedditBanner from "./redditBanner";
+import useRedditItems from "../hooks/getRedditItems";
 
 const RedditPostsContainer = () => {
-  const [token, setToken] = useState("");
-  const [data, setData] = useState();
-  const [nextPageKey, setNextPageKey] = useState("");
+  const [pageNum, setPageNum] = useState(1);
+  const { token, data, isLoading, hasMore } =
+    useRedditItems(pageNum);
+  const intObserver = useRef();
+  const lastPostElementRef = useCallback(
+    (post) => {
+      if (isLoading) return;
 
-  useEffect(() => {
-    fetchToken();
-    const fetchTokenInterval = setInterval(() => {
-      fetchToken();
-    }, 86399);
+      if (intObserver.current) intObserver.current.disconnect();
 
-    return () => {
-      revokeAccessToken(fetchToken);
-      setToken("");
-      clearInterval(fetchTokenInterval);
-    };
-  }, []);
+      intObserver.current = new IntersectionObserver((posts) => {
+        if (posts[0].isIntersecting && hasMore) {
+          setPageNum((prev) => prev + 1);
+        }
+      });
 
-  const fetchToken = () => {
-    fetchAccessToken().then((data) => {
-      setToken(data);
-      fetchDataFunc(data.access_token);
-    });
-  };
-
-  const fetchDataFunc = (token) => {
-    fetchData(token).then((data) => {
-      setNextPageKey(data.data.after);
-      setData(data);
-    });
-  };
+      if (post) intObserver.current.observe(post);
+    },
+    [isLoading, hasMore]
+  );
 
   const renderRedditItemsList = () => {
     if (data) {
-      return data.data.children.map((item) => {
-        return <RedditItem data={item.data} key={item.data.id} />;
+      return data.map((post, index) => {
+        if (data.length === index + 1) {
+          return (
+            <RedditItem
+              ref={lastPostElementRef}
+              data={post.data}
+              key={post.data.id}
+            />
+          );
+        } else {
+          return <RedditItem data={post.data} key={post.data.id} />;
+        }
       });
     }
   };
@@ -51,9 +47,24 @@ const RedditPostsContainer = () => {
   return (
     <div className="page-container">
       <RedditBanner />
-      {renderRedditItemsList()}
-      <button onClick={() => console.log(token)}>HELLO</button>
-      <button onClick={() => console.log(data)}>BYE</button>
+      <div className="wrapper">
+        <div className="post-list-container">
+          {renderRedditItemsList()}
+          <button onClick={() => console.log(token)}>HELLO</button>
+          <button onClick={() => console.log(data)}>BYE</button>
+          <button onClick={() => console.log(hasMore)}>BYE</button>
+          {data && isLoading && (
+            <p className="loading-title">Loading More Posts...</p>
+          )}
+          {data && !isLoading && (
+            <p className="back-to-top-button-title">
+              <a className="back-to-top-link" href="#top">
+                Back to Top
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

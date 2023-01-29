@@ -21,7 +21,7 @@ encodedParams.append("refresh_token", refreshToken);
 
 //baseURL for reddit API calls
 export const fetchDataApi = axios.create({
-  baseURL: "https://oauth.reddit.com/r/aww",
+  baseURL: "https://oauth.reddit.com",
 });
 
 //baseURL for getting access token to make api calls
@@ -49,9 +49,9 @@ export const revokeAccessToken = async (accessToken) => {
   return response;
 };
 
-export const fetchData = async(bearerToken, after) => {
+export const fetchData = async(bearerToken, after = '') => {
     let nextPage = "";
-    after ? (nextPage = `?after=${after}`) : (nextPage = "");
+    after !== "" ? (nextPage = `/r/aww/hot?after=${after}`) : (nextPage = "/r/aww/hot");
     const config = {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

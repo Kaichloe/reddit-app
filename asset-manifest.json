@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/reddit-app/static/css/main.378575a3.css",
-    "main.js": "/reddit-app/static/js/main.7b372f02.js",
-    "static/js/787.293d39b4.chunk.js": "/reddit-app/static/js/787.293d39b4.chunk.js",
-    "static/media/redditBanner.png": "/reddit-app/static/media/redditBanner.6fe6e2848f08514b7c06.png",
-    "index.html": "/reddit-app/index.html",
-    "main.378575a3.css.map": "/reddit-app/static/css/main.378575a3.css.map",
-    "main.7b372f02.js.map": "/reddit-app/static/js/main.7b372f02.js.map",
-    "787.293d39b4.chunk.js.map": "/reddit-app/static/js/787.293d39b4.chunk.js.map"
+    "main.css": "/reddit-app/r/aww/hot/static/css/main.05ef572f.css",
+    "main.js": "/reddit-app/r/aww/hot/static/js/main.81a075ee.js",
+    "static/js/787.293d39b4.chunk.js": "/reddit-app/r/aww/hot/static/js/787.293d39b4.chunk.js",
+    "static/media/redditBanner.png": "/reddit-app/r/aww/hot/static/media/redditBanner.6fe6e2848f08514b7c06.png",
+    "index.html": "/reddit-app/r/aww/hot/index.html",
+    "main.05ef572f.css.map": "/reddit-app/r/aww/hot/static/css/main.05ef572f.css.map",
+    "main.81a075ee.js.map": "/reddit-app/r/aww/hot/static/js/main.81a075ee.js.map",
+    "787.293d39b4.chunk.js.map": "/reddit-app/r/aww/hot/static/js/787.293d39b4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.378575a3.css",
-    "static/js/main.7b372f02.js"
+    "static/css/main.05ef572f.css",
+    "static/js/main.81a075ee.js"
   ]
 }

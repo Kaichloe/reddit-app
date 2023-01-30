@@ -61,3 +61,14 @@ export const fetchData = async(bearerToken, after = '') => {
     const response = await fetchDataApi.get(nextPage, config);
     return response.data;
 }
+
+export const fetchDataFromLink = async(bearerToken, permaLink) => {
+  const config = {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `Bearer ${bearerToken}`
+      },
+  }
+  const response = await fetchDataApi.get(permaLink, config);
+  return response.data;
+}

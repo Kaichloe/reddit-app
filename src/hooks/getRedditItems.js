@@ -5,7 +5,7 @@ import {
   fetchData,
 } from "../API/redditAPIs";
 
-const useRedditItems = (pageNum) => {
+const useRedditItems = (pageNum, permaLink) => {
   const [token, setToken] = useState("");
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +24,7 @@ const useRedditItems = (pageNum) => {
       clearInterval(fetchTokenInterval);
     };
   }, []);
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -58,12 +59,13 @@ const useRedditItems = (pageNum) => {
           setNextPageToken("");
           setHasMore(false);
         }
+
       });
       setIsLoading(false);
     });
   };
 
-  return { token, data, isLoading, hasMore};
+  return { token, data, isLoading, hasMore}
 };
 
 export default useRedditItems;

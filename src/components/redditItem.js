@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/redditItem.css";
+import RedditPostModal from "./redditPostModal";
+const RedditItem = React.forwardRef(({ data, type }, ref) => {
+  const [openModal, setOpenModal] = useState(false);
 
-const RedditPost = React.forwardRef(({ data }, ref) => {
-  const checkIfVideo = () => {
+  const checkIfVideo = (data) => {
     if (data.secure_media) {
       if (data.secure_media.reddit_video) {
         //for reddit uploaded videos
@@ -25,14 +27,22 @@ const RedditPost = React.forwardRef(({ data }, ref) => {
           </video>
         );
       }
-    } else if (data.url.split(".").includes("png")) {
-      //for where the post is an image with PNG
+    } else if (
+      data.url.split(".").includes("png") ||
+      data.url.split(".").includes("jpg")
+    ) {
+      //for where the post is an image with PNG or JPG
       return <img className="image png" src={data.url} />;
     } else {
       //edge case for post where there is a gallery of images so instead of showing
       //nothing will show thumbnail
       return <img className="image thumbnail" src={data.thumbnail} />;
     }
+  };
+
+  const openOriginalPost = () => {
+    if (type === 'post' ) return;
+    setOpenModal(true);
   };
 
   return (
@@ -44,12 +54,24 @@ const RedditPost = React.forwardRef(({ data }, ref) => {
             {data.title}
           </div>
         ) : (
-          <div className="item-title">{data.title}</div>
+          <div className="item-title" onClick={() => openOriginalPost()}>
+            {data.title}
+          </div>
         )}
-        {checkIfVideo()}
+        {openModal && type === 'list' &&
+          <RedditPostModal
+            openModal={openModal}
+            onClose={() => setOpenModal(false)}
+            itemData={data}
+            link={data.permalink}
+            checkIfVideo={checkIfVideo}
+          />
+        }
+        {checkIfVideo(data)}
+
       </div>
     </div>
   );
 });
 
-export default RedditPost;
+export default RedditItem;

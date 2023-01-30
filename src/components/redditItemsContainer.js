@@ -6,8 +6,7 @@ import useRedditItems from "../hooks/getRedditItems";
 
 const RedditPostsContainer = () => {
   const [pageNum, setPageNum] = useState(1);
-  const { token, data, isLoading, hasMore } =
-    useRedditItems(pageNum);
+  const { token, data, isLoading, hasMore } = useRedditItems(pageNum);
   const intObserver = useRef();
   const lastPostElementRef = useCallback(
     (post) => {
@@ -35,10 +34,13 @@ const RedditPostsContainer = () => {
               ref={lastPostElementRef}
               data={post.data}
               key={post.data.id}
+              type={"list"}
             />
           );
         } else {
-          return <RedditItem data={post.data} key={post.data.id} />;
+          return (
+            <RedditItem data={post.data} key={post.data.id} type={"list"} />
+          );
         }
       });
     }
@@ -50,18 +52,8 @@ const RedditPostsContainer = () => {
       <div className="wrapper">
         <div className="post-list-container">
           {renderRedditItemsList()}
-          <button onClick={() => console.log(token)}>HELLO</button>
-          <button onClick={() => console.log(data)}>BYE</button>
-          <button onClick={() => console.log(hasMore)}>BYE</button>
           {data && isLoading && (
             <p className="loading-title">Loading More Posts...</p>
-          )}
-          {data && !isLoading && (
-            <p className="back-to-top-button-title">
-              <a className="back-to-top-link" href="#top">
-                Back to Top
-              </a>
-            </p>
           )}
         </div>
       </div>

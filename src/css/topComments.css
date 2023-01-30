@@ -1,0 +1,13 @@
+.commentsContainer{
+    color:beige;
+}
+
+.text {
+    color: beige;
+    font-size: 20px;
+}
+
+.commentWrapper {
+    display: flex;
+    margin-bottom: 5px;
+}

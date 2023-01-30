@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/reddit-app/static/css/main.05ef572f.css",
-    "main.js": "/reddit-app/static/js/main.25ec8a5f.js",
+    "main.css": "/reddit-app/static/css/main.0389b5ff.css",
+    "main.js": "/reddit-app/static/js/main.5b1bc9f0.js",
     "static/js/787.293d39b4.chunk.js": "/reddit-app/static/js/787.293d39b4.chunk.js",
     "static/media/redditBanner.png": "/reddit-app/static/media/redditBanner.6fe6e2848f08514b7c06.png",
     "index.html": "/reddit-app/index.html",
-    "main.05ef572f.css.map": "/reddit-app/static/css/main.05ef572f.css.map",
-    "main.25ec8a5f.js.map": "/reddit-app/static/js/main.25ec8a5f.js.map",
+    "main.0389b5ff.css.map": "/reddit-app/static/css/main.0389b5ff.css.map",
+    "main.5b1bc9f0.js.map": "/reddit-app/static/js/main.5b1bc9f0.js.map",
     "787.293d39b4.chunk.js.map": "/reddit-app/static/js/787.293d39b4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05ef572f.css",
-    "static/js/main.25ec8a5f.js"
+    "static/css/main.0389b5ff.css",
+    "static/js/main.5b1bc9f0.js"
   ]
 }

@@ -1,13 +1,22 @@
-.commentsContainer{
-    color:beige;
-}
-
-.text {
-    color: beige;
-    font-size: 20px;
+.commentsContainer {
+  color: beige;
 }
 
 .commentWrapper {
-    display: flex;
-    margin-bottom: 5px;
+  display: flex;
+  margin-bottom: 8px;
+  color: beige;
+  font-size: 16px;
+  max-width: fit-content;
+  margin-right: 25px;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #1a1a1b;
+}
+
+@media screen and (max-width: 500px) {
+  .commentWrapper {
+    margin-right: 0px;
+  }
 }

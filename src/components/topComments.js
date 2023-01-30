@@ -10,8 +10,7 @@ const TopComments = ({ data }) => {
     return data.map((data, index) => {
       return (
         <div className="commentWrapper" key={`${data.data.author} ${index}`}>
-          <p className="comment">{data.data.body}</p>
-          <p className="author">{data.data.author} </p>
+          <p className="comment">{`${data.data.body} - u/${data.data.author}`}</p>
         </div>
       );
     });

@@ -36,7 +36,7 @@ const RedditPostModal = ({ openModal, onClose, link, itemData, checkIfVideo }) =
         </div>
         <RedditItem data={itemData} type={'post'}/>
         {!postData && <p className="loadingMsg">Loading Data!</p>}
-        {postData && <TopComments data={postData[1].data.children.slice(0,10)} />}
+        {postData && <TopComments data={postData[1].data.children.slice(0,20)} />}
       </div>
     </>
   );

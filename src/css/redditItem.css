@@ -3,10 +3,11 @@
   padding: .75rem;
   border-radius: 5px;
   margin-bottom: .5rem;
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: .25rem;
+  margin-right: .25rem;
   width: 25%;
   border: 1px solid grey;
+  min-width: 400px;
 }
 
 .reddit-item:hover {
@@ -50,6 +51,7 @@
 video {
   background-color: black;
   border-radius: 5px;
+  object-fit: contain;
 }
 
 .image {

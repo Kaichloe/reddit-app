@@ -1,10 +1,11 @@
+# Reddit Aww
 This site is live and hosted on GitHub Pages. https://kaichloe.github.io/reddit-app
 
 I used React, HTML, CSS, and Axios to create the front page of the popular subreddit Aww. I decided to go for a dark theme as it is the better theme. Next I fully embraced a card style for displaying as (in my opinion) it allows for a better user experience whether on the computer or on mobile devices.
 
 This project taught me a lot of things as I was tasked to do this without an external libraries and pluggings to create interactive mechancics. I learned to use Intersection Observer for a seemless Infinite Scrolling and relearning a lot of styling without the use of bootstrap. 
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
